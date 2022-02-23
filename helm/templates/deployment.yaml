@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: deploy-stuff
-        image: ghcr.io/choste/deploy-stuff:0.0.1
+        image: ghcr.io/choste/deploy-stuff:{{.Values.imageTag}}
         ports:
         - containerPort: 3000
