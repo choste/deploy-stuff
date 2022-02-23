@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-stuff
+  labels:
+    app: deploy-stuff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-stuff
+  template:
+    metadata:
+      labels:
+        app: deploy-stuff
+    spec:
+      containers:
+      - name: deploy-stuff
+        image: ghcr.io/choste/deploy-stuff:0.0.1
+        ports:
+        - containerPort: 3000
