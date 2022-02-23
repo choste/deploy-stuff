@@ -18,4 +18,7 @@ spec:
       - name: deploy-stuff
         image: ghcr.io/choste/deploy-stuff:{{.Values.imageTag}}
         ports:
-        - containerPort: 3000
+        - containerPort: {{ if eq .Values.ENV "PR" }} 3001 {{else}} 3000 {{end}}
+        env:
+          - name: PORT
+            value: {{ if eq .Values.ENV "PR" }} "3001" {{else}} "3000" {{end}}

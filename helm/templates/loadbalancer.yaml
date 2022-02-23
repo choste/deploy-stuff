@@ -6,6 +6,6 @@ spec:
   selector:
     app: deploy-stuff
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: {{ if eq .Values.ENV "PR" }} 3001 {{else}} 3000 {{end}}
+      targetPort: {{ if eq .Values.ENV "PR" }} 3001 {{else}} 3000 {{end}}
   type: LoadBalancer
