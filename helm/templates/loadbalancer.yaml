@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: deploy-stuff-service
+spec:
+  selector:
+    app: deploy-stuff
+  ports:
+    - port: 3000
+      targetPort: 3000
+  type: LoadBalancer
