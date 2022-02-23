@@ -17,6 +17,7 @@ spec:
       containers:
       - name: deploy-stuff
         image: ghcr.io/choste/deploy-stuff:{{.Values.imageTag}}
+        {{ if eq .Values.ENV "PR"}}imagePullPolicy: Always{{end}}
         ports:
         - containerPort: {{ if eq .Values.ENV "PR" }} 3001 {{else}} 3000 {{end}}
         env:
