@@ -1,0 +1,5 @@
+name: Yaml patch
+description: patches for yaml config files
+runs:
+  using: docker
+  image: Dockerfile
