@@ -1,0 +1,11 @@
+name: Update Version
+
+on:
+  registry_package:
+    types: [published]
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo stuff
